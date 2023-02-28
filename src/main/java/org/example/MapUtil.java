@@ -20,8 +20,6 @@ public class MapUtil {
     private final BiFunction<String, String, String> obfuscateSensualData = (key, value) -> isSensual.test(key) ? "******" : value;
 
     public void displayObfuscatedData() {
-        for (String key : map.keySet()) {
-            System.out.printf("%s: %s\n", key, obfuscateSensualData.apply(key, map.get(key)));
-        }
+        map.keySet().forEach(key -> System.out.printf("%s: %s\n", key, obfuscateSensualData.apply(key, map.get(key))));
     }
 }
